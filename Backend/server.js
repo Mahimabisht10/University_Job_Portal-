@@ -1,8 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/db")
 const cors = require('cors');
-const patientRoutes = require('./routes/patientRoutes');
-const paymentRoutes = require('./routes/payment');
+ 
  const app = express();
 //  const User = require("./models/user")
  
