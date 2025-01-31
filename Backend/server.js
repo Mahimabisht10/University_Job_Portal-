@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // const express = require("express");
 // import express from 'express';
 // import connectDB from './config/db.js';
@@ -12,6 +13,14 @@
 // // const paymentRoutes = require('./routes/payment');
 //  const app = express();
 // //  const User = require("./models/user")
+=======
+const express = require("express");
+const connectDB = require("./config/db")
+const cors = require('cors');
+ 
+ const app = express();
+//  const User = require("./models/user")
+>>>>>>> 1062bfe0b4a3ddb7a47b2794bfb828770d414331
  
 // app.use(cors());
 // app.use(express.json());
