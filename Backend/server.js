@@ -1,54 +1,58 @@
 
+// import userRoute from "./routes/user.route.js"
 
-import express  from "express";
-import cookieParser from "cookie-parser";
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import connectDB from './config/db.js';
+import router from './routes/user.route.js';
 
-import cors from "cors"
-import User from "./models/User.model.js";
-const app=express();
- 
+const app = express();
 
-//middleware
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-
-const corsOptions={
-  origin:'http//localhost:5173',
-  Credentials:true
-}
-
-
-app.post('/api/users', async (req, res) => {
-  try {
-    const { name, email, age } = req.body;
-
-    // Create a new user
-    const newUser = new User({
-      name,
-      email,
-      age,
-    });
-
-    // Save user to MongoDB
-    await newUser.save();
-
-    res.status(201).json({ message: 'User created successfully', user: newUser });
-  } catch (err) {
-    console.error('Error creating user:', err);
-    res.status(500).json({ error: 'Server error' });
-  }
-});
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:5173', // Fix the URL
+  credentials: true,
+};
 
 app.use(cors(corsOptions));
-const PORT=3000;
-app.listen(PORT,()=>{
-  console.log(`server running at port ${PORT}`)
-})
 
+const PORT = 3000;
 
+// Use routes
+app.use('/api/v1/user', router);
 
+// Connect to DB and start server
+app.listen(PORT, () => {
+  connectDB(); // Ensure the DB is connected before starting the server
+  console.log(`Server running at port ${PORT}`);
+});
+
+// app.post('/api/users', async (req, res) => {
+//   try {
+//     const { name, email, age } = req.body;
+
+//     // Create a new user
+//     const newUser = new User({
+//       name,
+//       email,
+//       age,
+//     });
+
+//     // Save user to MongoDB
+//     await newUser.save();
+
+//     res.status(201).json({ message: 'User created successfully', user: newUser });
+//   } catch (err) {
+//     console.error('Error creating user:', err);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
 
 
 // // const express = require("express");

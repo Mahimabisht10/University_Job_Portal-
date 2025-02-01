@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
   },
   age: {
     type: Number,
-    required: true,
+  
   },
   phone: {
     type: Number,
