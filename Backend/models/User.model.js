@@ -21,11 +21,11 @@
 // module.exports = User;
 
 // models/User.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 // Create a Schema
 const userSchema = new mongoose.Schema({
-  name: {
+  fullname: {
     type: String,
     required: true,
   },
@@ -37,10 +37,33 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-});
+  phone: {
+    type: Number,
+    require: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  role: {
+    type: String,
+    enum: ["student", "recquriter"],
+  },
+  profile: {
+    bio: { type: String },
+    skills: [{ type: String }],
+    resume: { type: String }, //url to resume file
+    resumeOriginalName: { type: String },
+    company: { type: mongoose.Schema.Types.ObjectId, ref: "company" },
+    profilePhoto: {
+      type: String,
+      default:""
+    },
+  },
+},{timestamps:true});
 
 // Create a Model
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 // Export the model
 export default User;
