@@ -33,12 +33,30 @@ const jobSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  company:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Company',
+    required:true
+  },
   companyId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Company',  // Assuming you're linking to a Company model
     required: true,
   },
-});
+  created_by:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'User',
+    required:true
+  },
+  applications:[
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Applications'
+
+    }
+  ]
+
+},{timestamps:true})
 
 const Job = mongoose.model("Job", jobSchema);
 
