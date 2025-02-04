@@ -1,15 +1,15 @@
 
-import './App.css'
+import { Button } from "./components/ui/button"
+import { Progress } from "./components/ui/progress"
+import Ex from './components/Ex'
 
-function App() {
-  
-
+const App = () => {
   return (
-    <>
-     <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-    </>
+    <div className="p-5 space-y-2 bg-gray-100">
+      <Button>Click me</Button>
+      <Progress value={33} />
+      <Ex/>
+    </div>
   )
 }
 
