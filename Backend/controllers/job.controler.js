@@ -45,7 +45,7 @@ export const getAllJobs = async (req, res) => {
     console.log("Query:", query);
 
     const jobs = await Job.find(query)
-      .populate({ path: "companyId" })
+      .populate({ path: "company" })
       .sort({ createdAt: -1 });
 
     console.log("Jobs found:", jobs);
