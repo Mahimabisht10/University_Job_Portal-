@@ -1,13 +1,15 @@
 
 import './App.css'
+import { Button } from './components/ui/button'
+import Navbar from './components/ui/shared/Navbar'
 
 function App() {
-  
+
 
   return (
     <>
-       <h1 className='text-red-500'>Lets build job portal </h1>
-  
+
+<Navbar/>
     </>
   )
 }
