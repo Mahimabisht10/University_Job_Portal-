@@ -1,35 +1,35 @@
 // import User from "../models/User.model.js";
-// import bcrypt from "bcryptjs";
-// import jwt from "jsonwebtoken";
-// require('dotenv').config(); // Make sure to load environment variables
+//  import bcrypt from "bcryptjs";
+//  import jwt from "jsonwebtoken";
+//  require('dotenv').config(); // Make sure to load environment variables
 
 
 // export const register = async (req, res) => {
-//   try {
-//     const { fullname, email, phoneNumber, password, role } = req.body;
+//    try {
+//      const { fullname, email, phoneNumber, password, role } = req.body;
 //     if (!fullname || !email || !phoneNumber || !password || !role) {
-//       return res.status(400).json({
-//         message: "Something is Missing",
-//         success: false,
-//       });
+//        return res.status(400).json({
+//          message: "Something is Missing",
+//          success: false,
+//      });
 //     }
-//     const user = await User.findOne({ email });
-//     if (user) {
-//       return res.status(400).json({
-//         message: "User already exists with this email.",
-//         success: false,
-//       });
-//     }
-//     const hashedPassword = await bcrypt.hash(password, 10);
-//     await User.create({
-//       fullname,
-//       email,
-//       phoneNumber,
-//       password: hashedPassword,
-//       role,
-//     });
-//     return res.status(201).json({
-//       message: "Account created successfully",
+//      const user = await User.findOne({ email });
+//      if (user) {
+//        return res.status(400).json({
+//          message: "User already exists with this email.",
+//          success: false,
+//        });
+//      }
+//      const hashedPassword = await bcrypt.hash(password, 10);
+//      await User.create({
+//        fullname,
+//        email,
+//        phoneNumber,
+//        password: hashedPassword,
+//        role,
+//      });
+//      return res.status(201).json({
+//        message: "Account created successfully",
 //       success: true,
 //     });
 //   } catch (error) {
@@ -247,7 +247,7 @@ export const login = async (req, res) => {
         success: false,
       });
     }
-    // check user role
+    //check user role
     if (role !== user.role) {
       return res.status(400).json({
         message: "Account doesn't exist with the current role",
@@ -333,12 +333,12 @@ export const updateProfile = async (req, res) => {
       });
     }
 
-    // Ensure profile exists
+    //Ensure profile exists
     if (!user.profile) {
       user.profile = {}; // Initialize profile if it doesn't exist
     }
 
-    // Update fields as necessary
+    //Update fields as necessary
     if (fullname) user.fullname = fullname;
     if (email) user.email = email;
     if (phoneNumber) user.phoneNumber = phoneNumber;

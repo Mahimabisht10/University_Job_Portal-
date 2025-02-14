@@ -24,8 +24,7 @@
 import mongoose from 'mongoose';
 
  const connectDB = async () => {
-  const uri =     'mongodb+srv://tripathidiya673:Ywi1nmlzEW2QrHg8@cluster0.gumlx.mongodb.net/yourDatabaseName?retryWrites=true&w=majority'
- 
+  const uri =     "mongodb+srv://mahibisht2610:iM97SzVLpy4onuTC@mahima26.5y6po.mongodb.net/?retryWrites=true&w=majority&appName=Mahima26";
 
   try {
     await mongoose.connect(uri);
@@ -37,4 +36,4 @@ import mongoose from 'mongoose';
 };
 
 
-export default connectDB;
+export default connectDB;4
