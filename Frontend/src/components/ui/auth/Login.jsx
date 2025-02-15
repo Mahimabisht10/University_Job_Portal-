@@ -9,7 +9,7 @@ import { RadioGroup } from "@radix-ui/react-radio-group";
 import { Button } from "../button";
 import { Link } from "react-router-dom";
 
-const USER_API_END_POINT = "http://localhost:5000/api/v1/user";
+const USER_API_END_POINT = "http://localhost:4000/api/v1/user";
 
 const Login = () => {
   const [input, setInput] = useState({
