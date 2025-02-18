@@ -243,6 +243,11 @@ const Signup = () => {
     }
 
     try {
+// <<<<<<< recover
+//       const res = await axios.post(`${USER_API_END_POINT}/register`, input);
+//  console.log(res);
+ 
+// =======
       console.log(formdata);
       
       // const res = await axios.post(`${USER_API_END_POINT}/register`, formdata, {
@@ -255,6 +260,7 @@ const Signup = () => {
       const  res = await axios.post('http://localhost:4000/api/v1/user/register',formdata)
   console.log(res);
   
+ 
       if (res.data.success) {
         navigate("/login");
         toast.success(res.data.message);
