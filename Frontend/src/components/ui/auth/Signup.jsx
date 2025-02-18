@@ -224,19 +224,42 @@ const Signup = () => {
     }
 
     // Prepare data to send
-    const formData = new FormData();
-    formData.append("fullname", input.fullname);
-    formData.append("email", input.email);
-    formData.append("phoneNumber", input.phoneNumber);
-    formData.append("password", input.password);
-    formData.append("role", input.role);
-    if (input.file) {
-      formData.append("file", input.file);
+    // const formData = new FormData();
+    // formData.append("fullname", input.fullname);
+    // formData.append("email", input.email);
+    // formData.append("phoneNumber", input.phoneNumber);
+    // formData.append("password", input.password);
+    // formData.append("role", input.role);
+    // if (input.file) {
+    //   formData.append("file", input.file);
+    // }
+    const formdata={
+      fullname:input.fullname,
+      email:input.email,
+      phoneNumber:input.phoneNumber,
+      password:input.password,
+      role:input.role,
+      file:input.file
     }
 
     try {
-      const res = await axios.post(`${USER_API_END_POINT}/register`, input);
- console.log(res);
+// <<<<<<< recover
+//       const res = await axios.post(`${USER_API_END_POINT}/register`, input);
+//  console.log(res);
+ 
+// =======
+      console.log(formdata);
+      
+      // const res = await axios.post(`${USER_API_END_POINT}/register`, formdata, {
+      //   headers: {
+      //     "Content-Type": "multipart/form-data",
+      //   },
+      //   withCredentials: true,
+      // });
+
+      const  res = await axios.post('http://localhost:4000/api/v1/user/register',formdata)
+  console.log(res);
+  
  
       if (res.data.success) {
         navigate("/login");
