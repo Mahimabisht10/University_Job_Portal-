@@ -1,22 +1,16 @@
-// Import the tailwindcss-animate plugin using ES module syntax
+/** @type {import('tailwindcss').Config} */
 import tailwindcssAnimate from 'tailwindcss-animate';
 
 export default {
   darkMode: ["class"],
-
-  // Content paths for Tailwind CSS to scan
   content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
-
   theme: {
     extend: {
-      // Customizing border radius
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-
-      // Customizing colors with CSS variables
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -61,7 +55,5 @@ export default {
       },
     },
   },
-
-  // Adding the tailwindcss-animate plugin
   plugins: [tailwindcssAnimate],
 };
