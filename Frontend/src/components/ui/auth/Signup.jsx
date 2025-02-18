@@ -159,7 +159,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
 
-const USER_API_END_POINT = "http://localhost:5000/api/v1/user"; // Update your endpoint
+const USER_API_END_POINT = "http://localhost:4000/api/v1/user"; // Update your endpoint
 
 const Signup = () => {
   const [input, setInput] = useState({
@@ -235,13 +235,9 @@ const Signup = () => {
     }
 
     try {
-      const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
-
+      const res = await axios.post(`${USER_API_END_POINT}/register`, input);
+ console.log(res);
+ 
       if (res.data.success) {
         navigate("/login");
         toast.success(res.data.message);
