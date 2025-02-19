@@ -460,13 +460,10 @@ const Signup = () => {
     }
 
     try {
+      console.log(input);
+      
       // Sending the form data to the backend (adjust as necessary)
-      const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(`${USER_API_END_POINT}/register`, input );
 
       if (res.data.success) {
         navigate("/login");

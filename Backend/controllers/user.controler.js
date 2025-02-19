@@ -264,7 +264,8 @@ export const login = async (req, res) => {
     }
 
     const tokenData = { userId: user._id };
-    const token = await jwt.sign(tokenData, process.env.SECRET_KEY, {
+    
+    const token = await jwt.sign(tokenData, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30", {
       expiresIn: '1d',
     });
 
@@ -290,7 +291,7 @@ export const login = async (req, res) => {
         success: true,
       });
   } catch (error) {
-    console.log(error);
+    console.log("RR",error);
     return res.status(500).json({
       message: "Something went wrong",
       success: false,
