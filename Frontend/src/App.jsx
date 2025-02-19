@@ -1,16 +1,13 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Import the Router and routing components
-import React from 'react';
-import Navbar from './components/ui/shared/Navbar';  // Import your Navbar component
+import React from 'react'
 
-function App() {
+const App = () => {
   return (
-    <Router>  {/* Wrap your app in BrowserRouter */}
-      <Navbar />
-      <Routes>  {/* Define your routes */}
-      
-      </Routes>
-    </Router>
-  );
+    <>
+      <h2 className="text-blue-500">This is a Blue Heading</h2>
+      <h3 className="text-green-500">This is a Green Heading</h3>
+
+    </>
+  )
 }
 
-export default App;
+export default App
